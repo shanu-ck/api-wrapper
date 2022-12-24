@@ -1,7 +1,7 @@
 {
-  "name": "jira-api-wrapper",
+  "name": "api-wrapper",
   "version": "1.0.0",
-  "description": "",
+  "description": "An API wrappers for cors issues",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
