@@ -1,5 +1,5 @@
 {
-  "name": "test-automation-backend",
+  "name": "jira-api-wrapper",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +9,7 @@
   },
   "author": "Shanu Dey",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   },
   "devDependencies": {

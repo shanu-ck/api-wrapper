@@ -1,7 +1,9 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get("/", (req, res) => {
     res.status(200).send("Welcome to Test Automation Backend");
@@ -17,7 +19,6 @@ app.post("/cycles", async (req, res) => {
                 method: "GET",
                 headers: {
                     Authorization: "AioAuth " + apiToken,
-                    "content-type": "application/json",
                 },
             }
         );
@@ -31,7 +32,7 @@ app.post("/cycles", async (req, res) => {
 
 app.post("/testcases", async (req, res) => {
     const projectKey = req.body.project_key;
-    const testCycleKey =req.body.test_cycle_key;
+    const testCycleKey = req.body.test_cycle_key;
     const apiToken = req.body.api_token;
     try {
         const response = await fetch(
