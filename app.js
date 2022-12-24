@@ -6,7 +6,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/", (req, res) => {
-    res.status(200).send("Welcome to Test Automation Backend");
+    res.status(200).send("Welcome to API Wrapper");
 });
 
 app.post("/cycles", async (req, res) => {
