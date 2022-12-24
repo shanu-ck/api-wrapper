@@ -29,4 +29,26 @@ app.post("/cycles", async (req, res) => {
     }
 });
 
+app.post("/testcases", async (req, res) => {
+    const projectKey = req.body.project_key;
+    const testCycleKey =req.body.test_cycle_key;
+    const apiToken = req.body.api_token;
+    try {
+        const response = await fetch(
+            `https://tcms.aiojiraapps.com/aio-tcms/api/v1/project/${projectKey}/testcycle/${testCycleKey}/testcase`,
+            {
+                method: "GET",
+                headers: {
+                    Authorization: "AioAuth " + apiToken,
+                },
+            }
+        );
+        const resultJson = await response.json();
+        res.status(200).send(resultJson);
+    } catch (e) {
+        console.log(e);
+        return res.status(400).send({ error: "Failed to get Test Cases" });
+    }
+});
+
 module.exports = app;
